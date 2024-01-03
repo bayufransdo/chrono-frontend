@@ -1,26 +1,32 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { LandingPage, SignIn, Dashboard, Calendar, History } from './pages';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Home</div>,
+    element: <LandingPage />,
+    errorElement: <div>Error</div>,
+  },
+  {
+    path: '/signin',
+    element: <SignIn />,
     errorElement: <div>Error</div>,
   },
   {
     path: '/dashboard',
-    element: <div>Home</div>,
+    element: <Dashboard />,
     children: [
       {
         index: true,
-        element: <div>All activities</div>,
+        element: <SignIn />,
       },
       {
         path: 'calendar',
-        element: <div>calendar</div>,
+        element: <Calendar />,
       },
       {
         path: 'history',
-        element: <div>history</div>,
+        element: <History />,
       },
     ],
   },
