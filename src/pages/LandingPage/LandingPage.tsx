@@ -1,14 +1,42 @@
+import { useState, SyntheticEvent, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar } from '../../components';
-import FeatureCard from '../../components/FeatureCard';
-import ActivityListing from './ActivityListing';
-import ScheduleManagement from './ScheduleManagement';
-import PrioritizingActivities from './PrioritizingActivities';
-import ReminderNotification from './ReminderNotification';
-import TimeVisualization from './TimeVisualization';
+import { Navbar, FeatureCard, TeamCard } from '../../components';
+import {
+  ActivityListing,
+  ScheduleManagement,
+  PrioritizingActivities,
+  ReminderNotification,
+  TimeVisualization,
+  Whatsapp,
+  Facebook,
+  Instagram,
+} from './icon';
 import './landing-page.css';
 
 const LandingPage = () => {
+  const [loader, setLoader] = useState<boolean>(false);
+  const alertRef = useRef<HTMLDivElement>(null);
+
+  async function formSubmit(e: SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const body = new FormData(e.target as HTMLFormElement);
+    alertRef.current!.classList.remove('show');
+    setLoader(true);
+    try {
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec',
+        {
+          method: 'POST',
+          body,
+        }
+      );
+      (e.target as HTMLFormElement).reset();
+      alertRef.current!.classList.add('show');
+      setLoader(false);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <Navbar />
@@ -99,6 +127,119 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      <div className="team-wrapper">
+        <div className="team-container">
+          <TeamCard
+            name="Al Ghazali"
+            role="Analyst"
+            imgUrl="/images/team/ali.png"
+          />
+          <TeamCard
+            name="Ibnu Hanif"
+            role="Designer"
+            imgUrl="/images/team/ibnu.png"
+          />
+          <TeamCard
+            name="Bayu Maulana"
+            role="Developer"
+            imgUrl="/images/team/bayu.png"
+          />
+          <TeamCard
+            name="Ajeng Wulan"
+            role="Developer"
+            imgUrl="/images/team/ajeng.png"
+          />
+          <TeamCard
+            name="Dwi Nurul"
+            role="Analyst"
+            imgUrl="/images/team/dwi.png"
+          />
+          <TeamCard
+            name="Miftahul Fazra"
+            role="Analyst"
+            imgUrl="/images/team/fazra.png"
+          />
+        </div>
+      </div>
+      <section id="contact">
+        <div className="container container-contact">
+          <div className="description">
+            <h2>
+              <span>Chrono</span> Contact
+            </h2>
+            <p>
+              Are you looking for help or have any questions? Drop us a message
+              in this form!
+            </p>
+          </div>
+          <div className="contact-form-container">
+            <div className="form-wrap">
+              <div className={`alert-loader ${loader ? '' : 'hide'}`}></div>
+              <div className={`alert alert-success`} ref={alertRef}>
+                <img src="/images/icon/success.svg" />
+                <p className="alert__message">
+                  Your Message has been Submitted!
+                </p>
+              </div>
+              <form
+                className={`form ${loader ? 'hide' : ''}`}
+                onSubmit={formSubmit}
+              >
+                <input type="email" placeholder="Email" name="Email" required />
+                <textarea
+                  placeholder="Message"
+                  name="Message"
+                  required
+                ></textarea>
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+            <div className="illustration">
+              <img
+                src="/images/illustration/contact-illustration.webp"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div className="container container-footer">
+          <div className="company">
+            <a href="https://polibatam.ac.id" target="_blank">
+              <img src="/images/icon/polibatam-white.png" />
+            </a>
+            <a
+              href="https://if.polibatam.ac.id/teknologi-rekayasa-perangkat-lunak/"
+              target="_blank"
+            >
+              <img src="/images/icon/trpl-white.png" />
+            </a>
+            <a href="/">
+              <img src="/images/icon/footer.png" />
+            </a>
+          </div>
+          <p className="desc">
+            Chrono is a web-based Time Management Asisstant for productivity
+            optimization
+          </p>
+          <div className="logo-container">
+            <Instagram />
+            <a href="#" className="svg-wrap">
+              <Facebook />
+            </a>
+            <a href="#" className="svg-wrap">
+              <Whatsapp />
+            </a>
+          </div>
+          <p className="copyright">
+            <small>
+              &copy; Copryright Chrono. All Rights Reserved Designed by{' '}
+              <u>Team 3 Mini-PBL TRPL 1A</u>
+            </small>
+          </p>
+        </div>
+      </footer>
     </>
   );
 };
