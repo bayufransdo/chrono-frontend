@@ -114,11 +114,11 @@ nav ul li a.login:hover {
 /* Navbar style end */
 
 /* Main style start */
-main {
+main.landing-page {
   padding: 40px 0;
   position: relative;
 }
-main .container-main {
+main.landing-page .container-main {
   margin-inline: auto;
   display: flex;
   flex-flow: column;
@@ -217,25 +217,25 @@ main .container-main {
   right: 0;
 }
 /* Blob start here */
-main img.floating {
+main.landing-page img.floating {
   position: absolute;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
 }
-main img.floating.left {
+main.landing-page img.floating.left {
   top: -100px;
   left: -30px;
 }
-main img.floating.right-1 {
+main.landing-page img.floating.right-1 {
   display: none;
 }
-main img.floating.right-2 {
+main.landing-page img.floating.right-2 {
   display: none;
 }
 /* Blob end here */
 @media screen and (min-width: 768px) {
-  main .container-main {
+  main.landing-page .container-main {
     flex-flow: row nowrap;
     padding: 20px;
   }
@@ -293,17 +293,17 @@ main img.floating.right-2 {
     right: 0;
   }
   /* Blob start here */
-  main img.floating.left {
+  main.landing-page img.floating.left {
     top: -100px;
     left: 0;
   }
-  main img.floating.right-1 {
+  main.landing-page img.floating.right-1 {
     display: block;
     top: 0;
     right: 0;
     width: 500px;
   }
-  main img.floating.right-2 {
+  main.landing-page img.floating.right-2 {
     display: block;
     top: 0;
     right: 0;

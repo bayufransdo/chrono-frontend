@@ -17,7 +17,7 @@ const LandingPage = () => {
   const [loader, setLoader] = useState<boolean>(false);
   const alertRef = useRef<HTMLDivElement>(null);
 
-  async function formSubmit(e: SyntheticEvent<HTMLFormElement>) {
+  async function formSubmit(e: SyntheticEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
     const body = new FormData(e.target as HTMLFormElement);
     alertRef.current!.classList.remove('show');
@@ -40,7 +40,7 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <main id="home">
+      <main className="landing-page" id="home">
         <img src="/images/blob/main-left.svg" className="floating left" />
         <img src="/images/blob/main-right-1.svg" className="floating right-1" />
         <img src="/images/blob/main-right-2.svg" className="floating right-2" />
