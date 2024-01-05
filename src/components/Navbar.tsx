@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="container container-header">
         <div className="logo">
           <Link to="/signin">
-            <img src="/images/icon/chrono-nav.png" alt="Chrono" title="Home" />
+            <img src="/images/icon/chrono.png" alt="Chrono" title="Home" />
           </Link>
         </div>
         <nav>

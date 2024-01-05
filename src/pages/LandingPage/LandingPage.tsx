@@ -81,7 +81,7 @@ const LandingPage = () => {
         </div>
       </main>
       <section id="features">
-        <img src="assets/images/index/feature-left.svg" className="left" />
+        <img src="/images/blob/feature-left.svg" className="left" />
         <div className="container container-features">
           <div className="description">
             <h2>
@@ -127,40 +127,54 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <div className="team-wrapper">
-        <div className="team-container">
-          <TeamCard
-            name="Al Ghazali"
-            role="Analyst"
-            imgUrl="/images/team/ali.png"
-          />
-          <TeamCard
-            name="Ibnu Hanif"
-            role="Designer"
-            imgUrl="/images/team/ibnu.png"
-          />
-          <TeamCard
-            name="Bayu Maulana"
-            role="Developer"
-            imgUrl="/images/team/bayu.png"
-          />
-          <TeamCard
-            name="Ajeng Wulan"
-            role="Developer"
-            imgUrl="/images/team/ajeng.png"
-          />
-          <TeamCard
-            name="Dwi Nurul"
-            role="Analyst"
-            imgUrl="/images/team/dwi.png"
-          />
-          <TeamCard
-            name="Miftahul Fazra"
-            role="Analyst"
-            imgUrl="/images/team/fazra.png"
-          />
+      <section id="team">
+        <div className="container container-team">
+          <div className="description">
+            <h2>
+              <span>Chrono</span> Team
+            </h2>
+            <p>
+              Welcome to Team Chrono! Here you can get to know those of us
+              dedicated to bringing Chrono into your life.
+            </p>
+          </div>
+
+          <div className="team-wrapper">
+            <div className="team-container">
+              <TeamCard
+                name="Al Ghazali"
+                role="Analyst"
+                imgUrl="/images/team/ali.png"
+              />
+              <TeamCard
+                name="Ibnu Hanif"
+                role="Designer"
+                imgUrl="/images/team/ibnu.png"
+              />
+              <TeamCard
+                name="Bayu Maulana"
+                role="Developer"
+                imgUrl="/images/team/bayu.png"
+              />
+              <TeamCard
+                name="Ajeng Wulan"
+                role="Developer"
+                imgUrl="/images/team/ajeng.png"
+              />
+              <TeamCard
+                name="Dwi Nurul"
+                role="Analyst"
+                imgUrl="/images/team/dwi.png"
+              />
+              <TeamCard
+                name="Miftahul Fazra"
+                role="Analyst"
+                imgUrl="/images/team/fazra.png"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
       <section id="contact">
         <div className="container container-contact">
           <div className="description">
@@ -175,9 +189,9 @@ const LandingPage = () => {
           <div className="contact-form-container">
             <div className="form-wrap">
               <div className={`alert-loader ${loader ? '' : 'hide'}`}></div>
-              <div className={`alert alert-success`} ref={alertRef}>
+              <div className={`alert__form`} ref={alertRef}>
                 <img src="/images/icon/success.svg" />
-                <p className="alert__message">
+                <p className="alert__form__message">
                   Your Message has been Submitted!
                 </p>
               </div>
@@ -216,7 +230,7 @@ const LandingPage = () => {
               <img src="/images/icon/trpl-white.png" />
             </a>
             <a href="/">
-              <img src="/images/icon/footer.png" />
+              <img src="/images/icon/chrono-white.png" />
             </a>
           </div>
           <p className="desc">
@@ -224,7 +238,9 @@ const LandingPage = () => {
             optimization
           </p>
           <div className="logo-container">
-            <Instagram />
+            <a href="#" className="svg-wrap">
+              <Instagram />
+            </a>
             <a href="#" className="svg-wrap">
               <Facebook />
             </a>
