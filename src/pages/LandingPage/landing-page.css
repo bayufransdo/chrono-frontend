@@ -47,7 +47,7 @@ nav .hamburger.active .mid {
 nav .hamburger.active .bottom {
   transform: rotate(45deg);
 }
-nav ul {
+nav ul.navbar {
   position: absolute;
   top: 75px;
   right: 0;
@@ -63,21 +63,21 @@ nav ul {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px); */
 }
-nav ul.active {
+nav ul.navbar.active {
   transform: scale(1);
 }
-nav ul li {
+nav ul.navbar li {
   display: block;
   margin: 15px 20px;
 }
-nav ul li a {
+nav ul.navbar li a {
   text-decoration: none;
   color: black;
 }
-nav ul li a:hover {
+nav ul.navbar li a:hover {
   color: var(--main-color);
 }
-nav ul li a.login {
+nav ul.navbar li a.login {
   display: inline-block;
   border-radius: 20px;
   font-weight: 700;
@@ -86,7 +86,7 @@ nav ul li a.login {
   padding: 6px 35px;
   transition: 0.3s;
 }
-nav ul li a.login:hover {
+nav ul.navbar li a.login:hover {
   opacity: 0.7;
 }
 @media screen and (min-width: 768px) {
@@ -99,14 +99,14 @@ nav ul li a.login:hover {
   nav .hamburger {
     display: none;
   }
-  nav ul {
+  nav ul.navbar {
     transform: scale(1);
     padding-inline: 0;
     position: static;
     box-shadow: none;
     border: none;
   }
-  nav ul li {
+  nav ul.navbar li {
     display: inline-block;
     margin: 0 20px;
   }

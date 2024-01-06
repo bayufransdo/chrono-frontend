@@ -15,7 +15,7 @@ const Navbar = () => {
             <span className="hamburger-item mid"></span>
             <span className="hamburger-item bottom"></span>
           </div>
-          <ul>
+          <ul className="navbar">
             <li>
               <a href="#home">Home</a>
             </li>

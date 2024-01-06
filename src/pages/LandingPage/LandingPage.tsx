@@ -40,7 +40,7 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <main className="landing-page" id="home">
+      <main className="landing-page bg-red-400" id="home" >
         <img src="/images/blob/main-left.svg" className="floating left" />
         <img src="/images/blob/main-right-1.svg" className="floating right-1" />
         <img src="/images/blob/main-right-2.svg" className="floating right-2" />
