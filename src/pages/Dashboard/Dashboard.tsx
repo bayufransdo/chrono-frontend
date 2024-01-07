@@ -1,7 +1,7 @@
-import { NavLink } from '../../components';
-import { Calendar, History, Task } from './icon';
-import './dashboard.css';
-import './sidebar.css';
+import { NavLink } from "../../components";
+import { Calendar, History, Task } from "./icon";
+import "./dashboard.css";
+import "./sidebar.css";
 
 const Dashboard = () => {
   return (

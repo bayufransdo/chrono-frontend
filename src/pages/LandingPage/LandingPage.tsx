@@ -1,6 +1,6 @@
-import { useState, SyntheticEvent, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, FeatureCard, TeamCard } from '../../components';
+import { useState, SyntheticEvent, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Navbar, FeatureCard, TeamCard } from "../../components";
 import {
   ActivityListing,
   ScheduleManagement,
@@ -10,8 +10,8 @@ import {
   Whatsapp,
   Facebook,
   Instagram,
-} from './icon';
-// import './landing-page.css';
+} from "./icon";
+// import "./landing-page.css";
 
 const LandingPage = () => {
   const [loader, setLoader] = useState<boolean>(false);
@@ -20,18 +20,18 @@ const LandingPage = () => {
   async function formSubmit(e: SyntheticEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
     const body = new FormData(e.target as HTMLFormElement);
-    alertRef.current!.classList.remove('show');
+    alertRef.current!.classList.remove("show");
     setLoader(true);
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec',
+        "https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec",
         {
-          method: 'POST',
+          method: "POST",
           body,
-        }
+        },
       );
       (e.target as HTMLFormElement).reset();
-      alertRef.current!.classList.add('show');
+      alertRef.current!.classList.add("show");
       setLoader(false);
     } catch (err) {
       console.log(err);
@@ -40,41 +40,67 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <main className="landing-page " id="home">
-        <img src="/images/blob/main-left.svg" className="floating left" />
-        <img src="/images/blob/main-right-1.svg" className="floating right-1" />
-        <img src="/images/blob/main-right-2.svg" className="floating right-2" />
-        <div className="container container-main">
-          <section className="main-content">
-            <div className="description">
-              <p className="title">TIME MANAGEMENT ASSISTANT</p>
-              <h1>
-                Stay Productive With <span>Chrono</span>
+      <main id="home" className="landing-page  relative p-10">
+        <img
+          src="/images/blob/main-left.svg"
+          className="floating left absolute left-[-30px] top-[-100px] md:left-0"
+        />
+        <img
+          src="/images/blob/main-right-1.svg"
+          className="floating absolute right-1 hidden md:right-0 md:top-0 md:block md:w-[500px]"
+        />
+        <img
+          src="/images/blob/main-right-2.svg"
+          className="floating absolute right-2 hidden md:right-0 md:top-0 md:block md:w-[600px]"
+        />
+        <div className="container-main container mx-auto flex flex-col p-5 md:flex-row md:flex-nowrap ">
+          <section className="main-content md:w-1/2">
+            <div className="description animate-fade-in px-5">
+              <p className="title mb-5 text-sm font-bold tracking-[3px] text-main md:text-base md:tracking-[5px] md:text-main">
+                TIME MANAGEMENT ASSISTANT
+              </p>
+              <h1 className="mb-5 text-4xl font-extrabold text-dark md:max-w-[400px] md:text-5xl xl:text-[3.5rem]">
+                Stay Productive With <span className="text-main">Chrono</span>
               </h1>
-              <p className="description-text">
+              <p className="description-text mb-7 text-base leading-6 tracking-normal text-dark md:max-w-[450px] md:text-justify md:text-base md:text-dark">
                 An innovative solution that helps you plan and manage your time
                 smartly. Find the perfect balance between work, personal life
                 and your dream, all in one easy-to-use app.
               </p>
-              <div>
-                <Link to="/signin">Get started Now!</Link>
+              <div className="after:animate-move-right h-10  w-[230px] overflow-hidden rounded-[20px] border-[1px] border-solid border-main after:ml-[5%] after:content-[url('/images/icon/arrow-big.svg')] md:h-10 md:max-w-[380px] md:rounded-[30px] xl:h-[50px] xl:min-w-[380px]">
+                <Link
+                  to="/signin"
+                  className="inline-block h-full w-3/4 rounded-[20px] bg-main text-center text-xs leading-10 text-white transition-[width] duration-500 hover:w-full hover:opacity-80 md:rounded-[30px] md:text-[0.8rem] md:leading-10 xl:text-[1rem] xl:leading-[50px]"
+                >
+                  Get started Now!
+                </Link>
               </div>
             </div>
           </section>
-          <aside className="illustration">
-            <div className="img-container">
+          <aside className="illustration animate-fade-in px-[30px] py-5 md:w-1/2 md:p-0 ">
+            <div className="img-container relative">
               <img
                 src="/images/illustration/main-illustration.webp"
                 alt="illustration"
+                className="md:mx-auto md:max-w-[90%] xl:max-w-[85%]"
               />
-              <div className="floating success">
-                <img src="/images/illustration/success.svg" />
+              <div className="floating success md xl:left=[280px] absolute bottom-[-30px] left-[140px] flex size-[70px] scale-[0.7] items-center justify-center rounded-[10px] bg-[#fdd527] shadow-md md:bottom-[-75px] md:left-[calc(100%-50%-width)] md:scale-[0.8] xl:bottom-[-75px] xl:scale-100">
+                <img
+                  src="/images/illustration/success.svg"
+                  className="size-10 text-white"
+                />
               </div>
-              <div className="floating productivity">
-                <img src="/images/illustration/productivity.svg" />
+              <div className="floating productivity absolute top-5 flex size-[70px] scale-[0.7] items-center justify-center rounded-[10px] bg-[#ff635e] shadow-md md:left-[60px] md:top-0 md:scale-[0.7] xl:left-[60px] xl:top-[20px] xl:scale-[0.9]">
+                <img
+                  src="/images/illustration/productivity.svg"
+                  className="mx-[15px] size-10"
+                />
               </div>
-              <div className="floating time">
-                <img src="/images/illustration/time.svg" />
+              <div className="floating time absolute right-0 top-0 flex size-[70px] scale-50 items-center justify-center rounded-[10px] bg-[#6f41f1] shadow-md md:right-0 md:top-0 md:scale-[0.6] xl:right-[90px] xl:top-[20px] xl:scale-[0.7]">
+                <img
+                  src="/images/illustration/time.svg"
+                  className="size-10 text-white"
+                />
               </div>
             </div>
           </aside>
@@ -82,7 +108,7 @@ const LandingPage = () => {
       </main>
       <section id="features">
         <img src="/images/blob/feature-left.svg" className="left" />
-        <div className="container container-features">
+        <div className="container-features container">
           <div className="description">
             <h2>
               <span>Chrono</span> Features
@@ -128,7 +154,7 @@ const LandingPage = () => {
         </div>
       </section>
       <section id="team">
-        <div className="container container-team">
+        <div className="container-team container">
           <div className="description">
             <h2>
               <span>Chrono</span> Team
@@ -176,7 +202,7 @@ const LandingPage = () => {
         </div>
       </section>
       <section id="contact">
-        <div className="container container-contact">
+        <div className="container-contact container">
           <div className="description">
             <h2>
               <span>Chrono</span> Contact
@@ -188,7 +214,7 @@ const LandingPage = () => {
           </div>
           <div className="contact-form-container">
             <div className="form-wrap">
-              <div className={`alert-loader ${loader ? '' : 'hide'}`}></div>
+              <div className={`alert-loader ${loader ? "" : "hide"}`}></div>
               <div className={`alert__form`} ref={alertRef}>
                 <img src="/images/icon/success.svg" />
                 <p className="alert__form__message">
@@ -196,7 +222,7 @@ const LandingPage = () => {
                 </p>
               </div>
               <form
-                className={`form ${loader ? 'hide' : ''}`}
+                className={`form ${loader ? "hide" : ""}`}
                 onSubmit={formSubmit}
               >
                 <input type="email" placeholder="Email" name="Email" required />
@@ -218,7 +244,7 @@ const LandingPage = () => {
         </div>
       </section>
       <footer>
-        <div className="container container-footer">
+        <div className="container-footer container">
           <div className="company">
             <a href="https://polibatam.ac.id" target="_blank">
               <img src="/images/icon/polibatam-white.png" />
@@ -250,7 +276,7 @@ const LandingPage = () => {
           </div>
           <p className="copyright">
             <small>
-              &copy; Copryright Chrono. All Rights Reserved Designed by{' '}
+              &copy; Copryright Chrono. All Rights Reserved Designed by{" "}
               <u>Team 3 Mini-PBL TRPL 1A</u>
             </small>
           </p>

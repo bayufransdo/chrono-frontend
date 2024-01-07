@@ -54,7 +54,9 @@ nav ul.navbar {
   border: 1px solid #f5f5f5;
   border-radius: 10px;
   padding-inline: 10px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   background-color: white;
   transform: scale(0);
   transform-origin: top right;
@@ -126,6 +128,7 @@ main.landing-page .container-main {
 .main-content .description {
   padding-inline: 20px;
   animation: zoomFadeIn 0.5s ease-in-out;
+  -webkit-animation: zoomFadeIn 0.5s ease-in-out;
 }
 .main-content .description .title {
   letter-spacing: 3px;
@@ -157,9 +160,10 @@ main.landing-page .container-main {
   overflow: hidden;
 }
 .main-content .description div::after {
-  content: url('../images/arrow.svg');
+  content: url("../images/arrow.svg");
   margin-left: 5%;
   animation: moveRight 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  -webkit-animation: moveRight 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 .main-content .description div a {
   display: inline-block;
@@ -261,7 +265,7 @@ main.landing-page img.floating.right-2 {
     border-radius: 30px;
   }
   .main-content .description div::after {
-    content: url('/images/illustration/arrow-big.svg');
+    content: url("/images/illustration/arrow-big.svg");
   }
   .main-content .description div a {
     line-height: 40px;
@@ -451,11 +455,16 @@ section#features img.left {
   padding: 20px 25px 40px 25px;
   border: 3px solid white;
   border-radius: 15px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
   /* transition: 3s; */
   margin-block: 10px;
   /* transform: scale(0); */
-  transition: transform 0.5s ease-in-out, border 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.5s ease-in-out,
+    border 0.3s,
+    box-shadow 0.3s;
 }
 .feature-item.show {
   transform: scale(1);
@@ -745,7 +754,9 @@ section#features img.left {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 .contact-form-container form.hide {
   display: none;
@@ -754,9 +765,11 @@ section#features img.left {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-.contact-form-container form input[type='email'] {
+.contact-form-container form input[type="email"] {
   background-color: #d4ecff;
   width: 100%;
   color: var(--main-color);
@@ -764,10 +777,10 @@ section#features img.left {
   border-radius: 10px;
   margin-bottom: 20px;
 }
-.contact-form-container form input[type='email']::placeholder {
+.contact-form-container form input[type="email"]::placeholder {
   color: #85bde9;
 }
-.contact-form-container form input[type='email']:focus {
+.contact-form-container form input[type="email"]:focus {
   outline: 2px solid var(--main-color);
 }
 .contact-form-container form textarea {
@@ -895,7 +908,9 @@ footer {
   width: 80%;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   background-color: var(--main-color);
 }
 .alert__form.show {
@@ -918,7 +933,7 @@ footer {
 }
 .alert-loader::before,
 .alert-loader::after {
-  content: '';
+  content: "";
   grid-area: 1/1;
   border: 8px solid;
   border-radius: 50%;
