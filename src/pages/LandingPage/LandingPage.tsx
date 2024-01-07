@@ -11,7 +11,7 @@ import {
   Facebook,
   Instagram,
 } from './icon';
-import './landing-page.css';
+// import './landing-page.css';
 
 const LandingPage = () => {
   const [loader, setLoader] = useState<boolean>(false);
@@ -40,7 +40,7 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <main className="landing-page bg-red-400" id="home" >
+      <main className="landing-page " id="home">
         <img src="/images/blob/main-left.svg" className="floating left" />
         <img src="/images/blob/main-right-1.svg" className="floating right-1" />
         <img src="/images/blob/main-right-2.svg" className="floating right-2" />
