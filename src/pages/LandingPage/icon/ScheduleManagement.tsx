@@ -6,11 +6,12 @@ const ScheduleManagement = () => {
       width="40px"
       version="1.1"
       style={{
-        shapeRendering: 'geometricPrecision',
-        textRendering: 'geometricPrecision',
-        imageRendering: '-webkit-optimize-contrast',
-        fillRule: 'evenodd',
-        clipRule: 'evenodd',
+        shapeRendering: "geometricPrecision",
+        textRendering: "geometricPrecision",
+        imageRendering: "-webkit-optimize-contrast",
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        fill: "currentcolor",
       }}
       viewBox="0 0 79.98 78.84"
       xmlnsXlink="http://www.w3.org/1999/xlink"

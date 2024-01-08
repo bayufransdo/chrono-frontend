@@ -29,9 +29,12 @@ export default {
         },
       },
       animation: {
-        "fade-in": "fade-in 0.5s ease-in-out",
+        "fade-in": "fade-in 1s ease-in-out",
         "move-right":
           "move-right 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite",
+      },
+      transitionProperty: {
+        card: "border, box-shadow",
       },
     },
   },

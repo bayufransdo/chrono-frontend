@@ -67,7 +67,7 @@ const LandingPage = () => {
                 smartly. Find the perfect balance between work, personal life
                 and your dream, all in one easy-to-use app.
               </p>
-              <div className="after:animate-move-right h-10  w-[230px] overflow-hidden rounded-[20px] border-[1px] border-solid border-main after:ml-[5%] after:content-[url('/images/icon/arrow-big.svg')] md:h-10 md:max-w-[380px] md:rounded-[30px] xl:h-[50px] xl:min-w-[380px]">
+              <div className="h-10 w-[230px] overflow-hidden rounded-[20px] border-[1px] border-solid border-main after:ml-[5%] after:animate-move-right after:content-[url('/images/icon/arrow-big.svg')] md:h-10 md:max-w-[380px] md:rounded-[30px] xl:h-[50px] xl:min-w-[380px]">
                 <Link
                   to="/signin"
                   className="inline-block h-full w-3/4 rounded-[20px] bg-main text-center text-xs leading-10 text-white transition-[width] duration-500 hover:w-full hover:opacity-80 md:rounded-[30px] md:text-[0.8rem] md:leading-10 xl:text-[1rem] xl:leading-[50px]"
@@ -84,7 +84,7 @@ const LandingPage = () => {
                 alt="illustration"
                 className="md:mx-auto md:max-w-[90%] xl:max-w-[85%]"
               />
-              <div className="floating success md xl:left=[280px] absolute bottom-[-30px] left-[140px] flex size-[70px] scale-[0.7] items-center justify-center rounded-[10px] bg-[#fdd527] shadow-md md:bottom-[-75px] md:left-[calc(100%-50%-width)] md:scale-[0.8] xl:bottom-[-75px] xl:scale-100">
+              <div className="floating success md xl:left=[280px] absolute bottom-[-30px] left-[140px] flex size-[70px] scale-[0.7] items-center justify-center rounded-[10px] bg-[#fdd527] shadow-md md:bottom-[-75px] md:left-[calc((50%-40px))] md:scale-[0.8] xl:bottom-[-75px] xl:scale-100">
                 <img
                   src="/images/illustration/success.svg"
                   className="size-10 text-white"
@@ -106,48 +106,61 @@ const LandingPage = () => {
           </aside>
         </div>
       </main>
-      <section id="features">
-        <img src="/images/blob/feature-left.svg" className="left" />
-        <div className="container-features container">
-          <div className="description">
-            <h2>
-              <span>Chrono</span> Features
+      <section id="features" className="relative">
+        <img
+          src="/images/blob/feature-left.svg"
+          className="absolute top-0 -z-10 md:left-[-200px] md:top-[50px]"
+        />
+        <div className="mx-auto flex flex-col px-[20px] py-[30px]">
+          <div className="text-center text-dark md:p-[20px_40px] md:text-left">
+            <h2 className="mb-3 text-3xl font-bold md:text-[3rem]">
+              <span className="text-main">Chrono</span> Features
             </h2>
-            <p>
+            <p className="text-[0.9rem] leading-6 md:max-w-[500px] md:text-[1rem]">
               We want to change the way people view and utilize time, bringing
               efficiently, focus and satisfaction to every second spend
             </p>
           </div>
-          <div className="feature-container">
+          <div className="mx-auto flex max-w-[1000px] flex-wrap justify-center p-7 text-dark md:gap-3">
             <FeatureCard
-              cardOrder="item-1"
+              cardStyle="hover:border-[#fdd527] hover:shadow-[0_0_20px_0_#fdd527]"
               Icon={ActivityListing}
-              featureName="Activity Listing"
+              iconStyle="bg-[#fff9df] text-[#fdd527] group-hover/card:bg-[#fdd527]"
+              title="Activity Listing"
+              titleStyle="group-hover/card:text-[#fdd527]"
               featureDetail="Record each task and activity with details such as title, description,
           date and priority"
             />
             <FeatureCard
-              cardOrder="item-2"
+              cardStyle="hover:border-[#6f41f1] hover:shadow-[0_0_20px_0_#6f41f1]"
               Icon={ScheduleManagement}
-              featureName="Schedule Management"
+              iconStyle="bg-[#f2e9ff] text-[#6f41f1] group-hover/card:bg-[#6f41f1]"
+              title="Schedule Management"
+              titleStyle="group-hover/card:text-[#6f41f1]"
               featureDetail="Easily plan your daily, weekly or monthly schedule and customize the time as you wish."
             />
             <FeatureCard
-              cardOrder="item-3"
+              cardStyle="hover:border-[#ff5436] hover:shadow-[0_0_20px_0_#ff5436]"
               Icon={PrioritizingActivities}
-              featureName="Prioritizing Activities"
+              iconStyle="bg-[#ffdcdb] text-[#ff5436] group-hover/card:bg-[#ff5436]"
+              title="Prioritizing Activities"
+              titleStyle="group-hover/card:text-[#ff5436]"
               featureDetail="Give priority marks to crucial tasks to help you stay focused on what's important."
             />
             <FeatureCard
-              cardOrder="item-4"
+              cardStyle="hover:border-[#50e3c2] hover:shadow-[0_0_20px_0_#50e3c2]"
               Icon={ReminderNotification}
-              featureName="Reminders & Notifications"
+              iconStyle="bg-[#d7fff6] text-[#50e3c2] group-hover/card:bg-[#50e3c2]"
+              title="Reminders & Notifications"
+              titleStyle="group-hover/card:text-[#50e3c2]"
               featureDetail="Stay informed with reminders and notifications that help you stick to deadlines."
             />
             <FeatureCard
-              cardOrder="item-5"
+              cardStyle="hover:border-[#008fff] hover:shadow-[0_0_20px_0_#008fff]"
               Icon={TimeVisualization}
-              featureName="Time Visualization"
+              iconStyle="bg-[#d4ecff] text-[#008fff] group-hover/card:bg-[#008fff]"
+              title="Time Visualization"
+              titleStyle="group-hover/card:text-[#008fff]"
               featureDetail="Monitor and analyze your time usage through clear data visualizations."
             />
           </div>

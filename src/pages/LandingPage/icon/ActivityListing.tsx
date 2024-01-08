@@ -6,11 +6,12 @@ const ActivityListing = () => {
       width="50px"
       version="1.1"
       style={{
-        shapeRendering: 'geometricPrecision',
-        textRendering: 'geometricPrecision',
-        imageRendering: '-webkit-optimize-contrast',
-        fillRule: 'evenodd',
-        clipRule: 'evenodd',
+        shapeRendering: "geometricPrecision",
+        textRendering: "geometricPrecision",
+        imageRendering: "-webkit-optimize-contrast",
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        fill: "currentcolor",
       }}
       viewBox="0 0 99.23 85.46"
       xmlnsXlink="http://www.w3.org/1999/xlink"
