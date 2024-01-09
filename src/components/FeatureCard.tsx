@@ -17,10 +17,10 @@ const FeatureCard = ({
 }: FeatureCardProps) => {
   return (
     <div
-      className={`transition-card group/card my-3 max-w-[300px] rounded-2xl border-[3px] border-white bg-white p-[20px_25px_40px_25px] shadow-lg duration-300 ${cardStyle} md:my-0`}
+      className={`group/card my-3 max-w-[300px] rounded-2xl border-4 border-white bg-white p-[20px_25px_40px_25px] shadow-lg transition-card duration-300 ${cardStyle} md:my-0`}
     >
       <div
-        className={`mb-4 inline-block rounded-full p-4 text-white duration-300 group-hover/card:text-white ${iconStyle}`}
+        className={`mb-4 inline-block rounded-full p-4 duration-300 group-hover/card:text-white ${iconStyle}`}
       >
         {<Icon />}
       </div>

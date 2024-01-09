@@ -14,14 +14,15 @@ import {
 // import "./landing-page.css";
 
 const LandingPage = () => {
-  const [loader, setLoader] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const alertRef = useRef<HTMLDivElement>(null);
 
   async function formSubmit(e: SyntheticEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
     const body = new FormData(e.target as HTMLFormElement);
-    alertRef.current!.classList.remove("show");
-    setLoader(true);
+    alertRef.current!.classList.remove("flex");
+    alertRef.current!.classList.add("hidden");
+    setLoading(true);
     try {
       await fetch(
         "https://script.google.com/macros/s/AKfycbyQSapm3WEF4HQYwBaP8hIA6gq7Q1WDCRIM3tgLdlFmuce4KW8ggVWe18HELWnRjFzr/exec",
@@ -31,8 +32,9 @@ const LandingPage = () => {
         },
       );
       (e.target as HTMLFormElement).reset();
-      alertRef.current!.classList.add("show");
-      setLoader(false);
+      alertRef.current!.classList.remove("hidden");
+      alertRef.current!.classList.add("flex");
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -106,7 +108,7 @@ const LandingPage = () => {
           </aside>
         </div>
       </main>
-      <section id="features" className="relative">
+      <section id="features" className="relative px-3">
         <img
           src="/images/blob/feature-left.svg"
           className="absolute top-0 -z-10 md:left-[-200px] md:top-[50px]"
@@ -166,89 +168,102 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section id="team">
-        <div className="container-team container">
-          <div className="description">
-            <h2>
-              <span>Chrono</span> Team
+      <section id="team" className="px-3">
+        <div className="mx-auto flex flex-col p-[30px_20px]">
+          <div className="ml-10 text-center md:text-left ">
+            <h2 className="mb-3 text-4xl font-bold md:text-5xl">
+              <span className="text-main">Chrono</span> Team
             </h2>
-            <p>
+            <p className="text-[0.9rem] leading-6  md:max-w-[400px] md:text-justify md:text-[1rem]">
               Welcome to Team Chrono! Here you can get to know those of us
               dedicated to bringing Chrono into your life.
             </p>
           </div>
-
-          <div className="team-wrapper">
-            <div className="team-container">
-              <TeamCard
-                name="Al Ghazali"
-                role="Analyst"
-                imgUrl="/images/team/ali.png"
-              />
-              <TeamCard
-                name="Ibnu Hanif"
-                role="Designer"
-                imgUrl="/images/team/ibnu.png"
-              />
-              <TeamCard
-                name="Bayu Maulana"
-                role="Developer"
-                imgUrl="/images/team/bayu.png"
-              />
-              <TeamCard
-                name="Ajeng Wulan"
-                role="Developer"
-                imgUrl="/images/team/ajeng.png"
-              />
-              <TeamCard
-                name="Dwi Nurul"
-                role="Analyst"
-                imgUrl="/images/team/dwi.png"
-              />
-              <TeamCard
-                name="Miftahul Fazra"
-                role="Analyst"
-                imgUrl="/images/team/fazra.png"
-              />
-            </div>
+          <div className="flex flex-wrap justify-center p-[30px_10px] md:mx-auto md:max-w-[800px]">
+            <TeamCard
+              name="Al Ghazali"
+              role="Analyst"
+              imgUrl="/images/team/ali.png"
+            />
+            <TeamCard
+              name="Ibnu Hanif"
+              role="Designer"
+              imgUrl="/images/team/ibnu.png"
+            />
+            <TeamCard
+              name="Bayu Maulana"
+              role="Developer"
+              imgUrl="/images/team/bayu.png"
+            />
+            <TeamCard
+              name="Ajeng Wulan"
+              role="Developer"
+              imgUrl="/images/team/ajeng.png"
+            />
+            <TeamCard
+              name="Dwi Nurul"
+              role="Analyst"
+              imgUrl="/images/team/dwi.png"
+            />
+            <TeamCard
+              name="Miftahul Fazra"
+              role="Analyst"
+              imgUrl="/images/team/fazra.png"
+            />
           </div>
         </div>
       </section>
-      <section id="contact">
-        <div className="container-contact container">
-          <div className="description">
-            <h2>
-              <span>Chrono</span> Contact
+      <section id="contact" className="px-3">
+        <div className="container-contact container mx-auto p-[30px_20px]">
+          <div className="description ml-10 text-center md:mx-auto md:text-left">
+            <h2 className="mb-3 text-4xl font-bold md:text-5xl">
+              <span className="text-main">Chrono</span> Contact
             </h2>
-            <p>
+            <p className="text-[0.9rem] leading-6 md:text-[1rem]">
               Are you looking for help or have any questions? Drop us a message
               in this form!
             </p>
           </div>
-          <div className="contact-form-container">
-            <div className="form-wrap">
-              <div className={`alert-loader ${loader ? "" : "hide"}`}></div>
-              <div className={`alert__form`} ref={alertRef}>
+          <div className="contact-form-container py-[30px] md:flex md:flex-row-reverse">
+            <div className="form-wrap flex flex-col items-center justify-center gap-5 md:w-1/2">
+              <div className={`form-loader ${loading ? "" : "hide"}`}></div>
+              <div
+                className="hidden w-4/5 items-center gap-[10px] rounded-xl bg-main p-[15px] shadow-md"
+                ref={alertRef}
+              >
                 <img src="/images/icon/success.svg" />
-                <p className="alert__form__message">
-                  Your Message has been Submitted!
-                </p>
+                <p className="text-white">Your Message has been Submitted!</p>
               </div>
               <form
-                className={`form ${loader ? "hide" : ""}`}
+                className={`form ${
+                  loading ? "hidden" : ""
+                } rounded-xl bg-white p-5 shadow-md md:mx-auto md:max-w-[85%]`}
                 onSubmit={formSubmit}
               >
-                <input type="email" placeholder="Email" name="Email" required />
+                <input
+                  className="mb-5 w-full rounded-xl bg-input-color p-[10px_20px] text-main placeholder:text-placeholder-color focus:outline-[2px_solid_#0091ff]"
+                  type="email"
+                  placeholder="Email"
+                  name="Email"
+                  required
+                />
                 <textarea
+                  className="mb-5 h-[300px] w-full resize-y rounded-xl bg-input-color p-[10px_20px] text-main  placeholder:text-placeholder-color focus:ring-[2px_solid_white]"
                   placeholder="Message"
                   name="Message"
                   required
                 ></textarea>
-                <button type="submit">Send Message</button>
+                <button
+                  className="w-full cursor-pointer rounded-[20px] bg-main py-[10px] text-white duration-300 hover:opacity-70"
+                  type="submit"
+                >
+                  Send Message
+                </button>
               </form>
             </div>
-            <div className="illustration">
+            <div className="illustration p-5 md:grid md:w-1/2 md:place-items-center">
               <img
+                className="max-2-[200px] mx-auto md:max-w-[85%]"
                 src="/images/illustration/contact-illustration.webp"
                 loading="lazy"
               />
@@ -256,38 +271,56 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <footer>
-        <div className="container-footer container">
-          <div className="company">
+      <footer className="bg-[#1a2744]">
+        <div className="container-footer container mx-auto p-[30px_20px] text-center font-extralight leading-5 text-white">
+          <div className="company flex items-center justify-center gap-3">
             <a href="https://polibatam.ac.id" target="_blank">
-              <img src="/images/icon/polibatam-white.png" />
+              <img
+                className="mx-auto max-w-[150px]"
+                src="/images/icon/polibatam-white.png"
+              />
             </a>
             <a
               href="https://if.polibatam.ac.id/teknologi-rekayasa-perangkat-lunak/"
               target="_blank"
             >
-              <img src="/images/icon/trpl-white.png" />
+              <img
+                className="mx-auto max-w-[150px]"
+                src="/images/icon/trpl-white.png"
+              />
             </a>
             <a href="/">
-              <img src="/images/icon/chrono-white.png" />
+              <img
+                className="mx-auto max-w-[150px]"
+                src="/images/icon/chrono-white.png"
+              />
             </a>
           </div>
-          <p className="desc">
+          <p className="desc mt-5 text-sm">
             Chrono is a web-based Time Management Asisstant for productivity
             optimization
           </p>
-          <div className="logo-container">
-            <a href="#" className="svg-wrap">
+          <div className="logo-container mt-3 flex justify-center gap-3">
+            <a
+              href="#"
+              className="svg-wrap rounded-full bg-white p-2 hover:opacity-70"
+            >
               <Instagram />
             </a>
-            <a href="#" className="svg-wrap">
+            <a
+              href="#"
+              className="svg-wrap rounded-full bg-white p-2 hover:opacity-70"
+            >
               <Facebook />
             </a>
-            <a href="#" className="svg-wrap">
+            <a
+              href="#"
+              className="svg-wrap rounded-full bg-white p-2 hover:opacity-70"
+            >
               <Whatsapp />
             </a>
           </div>
-          <p className="copyright">
+          <p className="copyright mx-auto mt-5 max-w-[300px] text-sm">
             <small>
               &copy; Copryright Chrono. All Rights Reserved Designed by{" "}
               <u>Team 3 Mini-PBL TRPL 1A</u>

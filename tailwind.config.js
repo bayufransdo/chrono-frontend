@@ -11,6 +11,7 @@ export default {
         base: "#f5f5f5",
         "input-color": "#d4ecff",
         "card-border": "#acdaff",
+        "placeholder-color": "#85bde9",
       },
       keyframes: {
         "fade-in": {

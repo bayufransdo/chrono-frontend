@@ -6,13 +6,17 @@ interface TeamCardProps {
 
 const TeamCard = ({ name, role, imgUrl }: TeamCardProps) => {
   return (
-    <div className="team-item-wrapper">
-      <div className="team-item">
-        <h4>{name}</h4>
-        <p>{role}</p>
-        <hr />
-        <div className="logo-container">
-          <a href="https://instagram.com" className="svg-wrap" target="_blank">
+    <div className="team-item-wrapper dlex group/team relative m-10 justify-center">
+      <div className="team-item inline-block origin-top rounded-[20px] bg-card-border p-[30px_25px] text-center duration-200 group-hover/team:scale-110 group-hover/team:bg-main group-hover/team:text-white">
+        <h4 className="mb-[10px] mt-[60px] text-[1.2rem]">{name}</h4>
+        <p className="mb-3">{role}</p>
+        <hr className="mx-auto mb-5 h-[1px] w-1/2 bg-dark group-hover/team:bg-white" />
+        <div className="logo-container flex justify-center gap-[10px]">
+          <a
+            href="https://instagram.com"
+            className="svg-wrap rounded-full bg-main p-[5px] hover:opacity-70 group-hover/team:bg-dark"
+            target="_blank"
+          >
             <svg
               width="20px"
               viewBox="0 0 24 24"
@@ -46,7 +50,11 @@ const TeamCard = ({ name, role, imgUrl }: TeamCardProps) => {
               </g>
             </svg>
           </a>
-          <a href="https://facebook.com" className="svg-wrap" target="_blank">
+          <a
+            href="https://facebook.com"
+            className="svg-wrap rounded-full bg-main p-[5px] hover:opacity-70 group-hover/team:bg-dark"
+            target="_blank"
+          >
             <svg
               width="20px"
               viewBox="-5 0 20 20"
@@ -82,7 +90,7 @@ const TeamCard = ({ name, role, imgUrl }: TeamCardProps) => {
                         d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z"
                         id="facebook-[#176]"
                       >
-                        {' '}
+                        {" "}
                       </path>
                     </g>
                   </g>
@@ -90,7 +98,11 @@ const TeamCard = ({ name, role, imgUrl }: TeamCardProps) => {
               </g>
             </svg>
           </a>
-          <a href="https://whatsapp.com" className="svg-wrap" target="_blank">
+          <a
+            href="https://whatsapp.com"
+            className="svg-wrap rounded-full bg-main p-[5px] hover:opacity-70 group-hover/team:bg-dark"
+            target="_blank"
+          >
             <svg
               width="20px"
               viewBox="0 0 22 21"
@@ -123,7 +135,7 @@ const TeamCard = ({ name, role, imgUrl }: TeamCardProps) => {
           </a>
         </div>
       </div>
-      <div className="img-wrap">
+      <div className="img-wrap absolute left-[calc(50%-65px)] top-[-50px] z-10 mx-auto w-[130px] rounded-full border-4 border-solid border-transparent contrast-75 duration-200 group-hover/team:border-main group-hover/team:contrast-100">
         <img src={imgUrl} alt={name} />
       </div>
     </div>

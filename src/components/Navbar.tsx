@@ -35,7 +35,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <header className="sticky inset-0 z-[9999] bg-white shadow-[0_0_15px_15px_white]">
+    <header className="sticky inset-0 z-[9999] bg-white px-5 shadow-[0_0_15px_15px_white]">
       <div className="mx-auto flex items-center justify-between px-5">
         <div className="py-[10px]">
           <Link to="/signin">
