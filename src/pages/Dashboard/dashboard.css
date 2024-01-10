@@ -1,7 +1,7 @@
 /* Main start */
-main {
+/* main {
   padding-bottom: 100px;
-}
+} */
 .banner {
   display: flex;
   justify-content: center;
@@ -124,7 +124,7 @@ main {
   filter: none;
 }
 .activity__action-edit.disabled::after {
-  content: 'Add some tasks first!';
+  content: "Add some tasks first!";
   position: fixed;
   bottom: 70px;
   right: 0;
@@ -230,7 +230,9 @@ main {
 
   font-size: 0.8rem;
   background-color: var(--base-color);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 .activity__content-item:hover {
   border: 2px solid var(--card-border);
@@ -515,11 +517,11 @@ main {
   cursor: pointer;
   transition: all 0.2s;
 }
-.modal__add__form__priority label:has(input[type='radio']:checked) {
+.modal__add__form__priority label:has(input[type="radio"]:checked) {
   background-color: var(--main-color);
   color: #ffffff;
 }
-.modal__add__form__priority label input[type='radio'] {
+.modal__add__form__priority label input[type="radio"] {
   display: none;
 }
 .modal__add__form__repetition {
@@ -536,11 +538,11 @@ main {
   cursor: pointer;
   transition: all 0.2s;
 }
-.modal__add__form__repetition label:has(input[type='radio']:checked) {
+.modal__add__form__repetition label:has(input[type="radio"]:checked) {
   background-color: var(--main-color);
   color: #ffffff;
 }
-.modal__add__form__repetition label input[type='radio'] {
+.modal__add__form__repetition label input[type="radio"] {
   display: none;
 }
 .modal__add__form__button {
@@ -649,11 +651,11 @@ main {
   cursor: pointer;
   transition: all 0.2s;
 }
-.modal__edit__form__priority label:has(input[type='radio']:checked) {
+.modal__edit__form__priority label:has(input[type="radio"]:checked) {
   background-color: var(--main-color);
   color: #ffffff;
 }
-.modal__edit__form__priority label input[type='radio'] {
+.modal__edit__form__priority label input[type="radio"] {
   display: none;
 }
 .modal__edit__form__repetition {
@@ -670,11 +672,11 @@ main {
   cursor: pointer;
   transition: all 0.2s;
 }
-.modal__edit__form__repetition label:has(input[type='radio']:checked) {
+.modal__edit__form__repetition label:has(input[type="radio"]:checked) {
   background-color: var(--main-color);
   color: #ffffff;
 }
-.modal__edit__form__repetition label input[type='radio'] {
+.modal__edit__form__repetition label input[type="radio"] {
   display: none;
 }
 .modal__edit__form__button {
@@ -865,7 +867,9 @@ main {
   left: calc(50% - 150px);
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   z-index: 9999;
   animation: alert 0.5s;
   transition: opacity 0.5s;
