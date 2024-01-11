@@ -1,31 +1,41 @@
-import { NavLink } from "../../components";
+import { NavLink as NavLinkSidebar, HamburgerMenu } from "../../components";
+import { NavLink } from "react-router-dom";
 import { Calendar, History, Task } from "./icon";
-import "./dashboard.css";
-import "./sidebar.css";
+import { useState } from "react";
+// import "./dashboard.css";
+// import "./sidebar.css";
 
 const Dashboard = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+
   return (
-    <section className="sidebar">
-      <div className="sidebar__hamburger" /* onclick="toggleSidebar()" */>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div className="sidebar__profile">
-        <div className="sidebar__profile__account">
-          <div className="sidebar__profile__account__avatar">
+    <section
+      className={
+        "sidebar fixed top-0 z-[999] flex h-screen w-[250px] flex-col bg-base transition-all duration-300 md:left-0 " +
+        (showMenu ? "left-0" : "left-[-250px]")
+      }
+    >
+      <HamburgerMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+      <div className="sidebar__profile flex flex-col ">
+        <div className="sidebar__profile__account flex items-center justify-center gap-4 py-5">
+          <div className="sidebar__profile__account__avatar rounded-full">
             <img src="assets/images/dashboard/avatar.svg" />
           </div>
           <div className="sidebar__profile__account__detail">
-            <p className="sidebar__profile__account__detail-name">{}</p>
-            <p className="sidebar__profile__account__detail-email">{}</p>
+            <p className="sidebar__profile__account__detail-name max-w-[150px] break-words">
+              {}
+            </p>
+            <p className="sidebar__profile__account__detail-email max-w-[150px] break-words text-sm text-dark">
+              {}
+            </p>
           </div>
         </div>
-        <div className="sidebar__profile__menu">
-          <a
-            href="/settings.php"
-            className="settings <?= $active == 'settings' ? 'active' : '' ?>"
+        <div className="sidebar__profile__menu relative flex items-center justify-center gap-5">
+          <NavLink
+            className="cursor-pointer rounded-xl bg-[#e6eefb] p-2 text-main transition-all duration-200"
+            to="/settings.php"
             title="Settings"
+            end
           >
             <svg
               width="25px"
@@ -55,9 +65,9 @@ const Dashboard = () => {
                 ></path>
               </g>
             </svg>
-          </a>
+          </NavLink>
           <button
-            className="notifications <?= count($notificationsData) ? 'active' : '' ?>"
+            className="relatice cursor-pointer rounded-xl bg-[#e6eefb] p-2 text-main transition-all duration-200"
             title="Notifications"
             /* onclick="toggleNotifications()" */
           >
@@ -114,13 +124,17 @@ const Dashboard = () => {
       <div className="sidebar__menu">
         <nav className="sidebar__menu__list">
           <ul>
-            <NavLink name="Dashboard" path="/dashboard" icon={<Task />} />
-            <NavLink
+            <NavLinkSidebar
+              name="Dashboard"
+              path="/dashboard"
+              icon={<Task />}
+            />
+            <NavLinkSidebar
               name="Calendar"
               path="/dashboard/calendar"
               icon={<Calendar />}
             />
-            <NavLink
+            <NavLinkSidebar
               name="Calendar"
               path="/dashboard/history"
               icon={<History />}
